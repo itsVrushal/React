@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "vrushal patil",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
 }
