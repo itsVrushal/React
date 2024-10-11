@@ -26,11 +26,13 @@ body {
   display: flex;
   font-size: 24px;
   list-style-type: none;
+  align-items: center;
 }
 
 .nav-items > ul > li {
   padding: 10px;
   margin: 10px;
+  border-radius: 10px;
   transition: background-color 0.3s ease-in, box-shadow 0.2s ease;
 }
 .nav-items > ul > li:hover {
@@ -38,9 +40,30 @@ body {
   background-color: rgb(240, 220, 107);
   cursor: default;
 }
+.login {
+  padding: 0px 20px;
+  cursor: pointer;
+  height: 40px;
+  background-color: rgb(240, 220, 107);
+  border-radius: 10px;
+  border: solid 0.6px transparent;
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login:hover {
+  background-color: rgb(248, 228, 112);
+  border: solid 0.6px lightgray;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.filter {
+  padding: 10px 20px;
+  display: flex;
+}
 
 .filter-btn {
-  margin: 10px;
   padding: 5px;
   cursor: pointer;
 }
@@ -50,6 +73,7 @@ body {
   height: 110px;
   object-fit: cover;
   transition: box-shadow 0.3s ease;
+  border-radius: 10px;
 }
 .res-logo:hover {
   box-shadow: 0 4px 8px rgb(241, 225, 131);
@@ -57,8 +81,9 @@ body {
 .res-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
   padding: 0px 100px;
+  perspective: 1000px;
 }
 .res-card {
   padding: 5px;
@@ -68,15 +93,14 @@ body {
   background-color: #f0f0f0;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, background-color 0.3s ease-in,
-    box-shadow 0.3s ease;
+  transition: background-color 0.3s ease-in, box-shadow 0.3s ease;
+  border: 0.6px solid transparent;
 }
 .res-card:hover {
-  /* border: 1px solid black; */
+  border: 0.6px solid rgba(0, 0, 0, 0.24);
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
   background-color: rgb(240, 220, 107);
-  transform: scale(1.05);
 }
 
 .cuisine-text {
@@ -110,4 +134,45 @@ body {
 }
 #rating:hover {
   background-color: rgb(100, 236, 100);
+}
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0px 100px;
+}
+
+.shimmer-card {
+  width: 200px;
+  height: 270px;
+  background-color: #f0f0f0;
+  margin: 20px;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 1.5s infinite;
+}
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
